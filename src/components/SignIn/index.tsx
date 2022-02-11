@@ -42,9 +42,10 @@ const SignIn = (props:any) => {
   }
 
   const configAuthWrapper = {
-    headline: 'LogIn'
+    headline: 'LogIn1'
   };
   return (
+   
     <AuthWrapper {...configAuthWrapper}>
       <div className="formWrap">
         <form onSubmit={handleSubmit}>
