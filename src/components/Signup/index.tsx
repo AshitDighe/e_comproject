@@ -26,11 +26,9 @@ const Signup = (props:any) => {
     setConfirmPassword('');
     setErrors([]);
   };
-
   useEffect(() => {
     if (signUpSuccess) {
       reset();
-      // dispatch(resetAllAuthForms());
       navigate('/');
     }
   },[]);

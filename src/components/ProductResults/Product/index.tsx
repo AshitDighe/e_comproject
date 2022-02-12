@@ -1,7 +1,6 @@
 import React from 'react';
 import { iProduct } from '../../../Model/product';
 import Button from './../../forms/Button';
-import userIMG from './../../assets/user.png';
 import { Link } from 'react-router-dom';
 
 const Product = (Product:iProduct) => {
@@ -21,7 +20,6 @@ const{ProductThambnail,ProductName,ProductPrice, documentID,}=Product
         <img src={ProductThambnail} alt="ProductThambnail" />
         </Link>
       </div>
-
       <div className="details">
         <ul>
           <li>
@@ -45,7 +43,6 @@ const{ProductThambnail,ProductName,ProductPrice, documentID,}=Product
           </li>
         </ul>
       </div>
-
     </div>
   );
 };

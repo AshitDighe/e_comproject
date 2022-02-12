@@ -19,7 +19,6 @@ const SignIn = (props:any) => {
   useEffect(() => {
     if (signInSuccess) {
        resetForm();
-      // dispatch(resetAllAuthForms());
        navigate('/');
     }
   },);
@@ -35,17 +34,14 @@ const SignIn = (props:any) => {
     objUser.email=email; 
     objUser.password=password; 
     dispatch(signInUser(objUser));
-   
   }
   const handleGoogleSignIn = () => {
     dispatch(signInWithGoogle());
   }
-
   const configAuthWrapper = {
     headline: 'LogIn1'
   };
   return (
-   
     <AuthWrapper {...configAuthWrapper}>
       <div className="formWrap">
         <form onSubmit={handleSubmit}>

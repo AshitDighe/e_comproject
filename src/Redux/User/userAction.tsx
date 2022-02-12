@@ -14,7 +14,6 @@ export const signInUser=(user:iUser) => async (dispatch:any) => {
       payload: true
     });
   } catch (err) {
-    // console.log(err);
   }
 };
 export const signInWithGoogle = () => async (dispatch:any) => {
@@ -27,7 +26,6 @@ export const signInWithGoogle = () => async (dispatch:any) => {
         });
       });
   } catch (err) {
-    // console.log(err);
   }
 };
 export const signUpUser = (users:iUser) => async (dispatch:any) => {
@@ -41,16 +39,12 @@ export const signUpUser = (users:iUser) => async (dispatch:any) => {
   }
   try {
     const { user } = await auth.createUserWithEmailAndPassword(users.email, users.password);
-    // const additionalData=(users.displayName);
     await handleUserProfile(user,(users.displayName));
-    
     dispatch({
       type: userTypes.SIGN_UP_SUCCESS,
       payload: true
     });
-
   } catch (err) {
-    // console.log(err);
   }
 };
 export const resetAllAuthForms = () => ({
@@ -65,9 +59,7 @@ export const signoutuser= () => async (dispatch:any) =>{
           payload: true
         });
       });
-
   } catch (err) {
-    // console.log(err);
   }
 };
 export const resetPassword = (email:string ) => async (dispatch:any) => {
@@ -90,7 +82,6 @@ export const resetPassword = (email:string ) => async (dispatch:any) => {
         })
       });
   } catch (err) {
-    // console.log(err);
   }
 };
 

@@ -16,7 +16,6 @@ const EmailPassword = (props:any) => {
 
   useEffect(() => {
     if (resetPasswordSuccess) {
-      // dispatch(resetAllAuthForms());
       navigate('/login');
     }
   }, [resetPasswordSuccess]);
@@ -29,7 +28,6 @@ const EmailPassword = (props:any) => {
     e.preventDefault();
     dispatch(resetPassword(email));
   }
-
   const configAuthWrapper = {
     headline: 'Email Password'
   };

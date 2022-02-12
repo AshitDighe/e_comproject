@@ -2,7 +2,6 @@ import {firestore} from "../../../src/firebase/utils"
 import { iProduct } from "../../Model/product";
 
 export const handleAddProduct = (product:iProduct) => {
-console.log("producthelper",product)
     return new Promise((resolve, reject) => {
       firestore
         .collection('products')
@@ -36,7 +35,6 @@ console.log("producthelper",product)
     })
   }
   export const handleDeleteProduct = (documentID:any) => {
-    console.log(documentID, 1)
     return new Promise((resolve, reject) => {
       firestore
         .collection('products')

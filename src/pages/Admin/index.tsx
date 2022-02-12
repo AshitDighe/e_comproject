@@ -5,51 +5,39 @@ import FormInput from '../../components/forms/FormInput';
 import FormSelect from '../../components/forms/FormSelect';
 import LoadMore from '../../components/LoadMore';
 import Modal from '../../components/Modal';
-import userIMG from './../../assets/shopWomens.jpeg';
 import './styles.scss';
 import {addProduct,fetchProducts,deleteProductStart} from '../../Redux/Product/ProductAction';
 import { iProduct, Product } from '../../Model/product';
 
-// const mapState = (productsData:any) => ({
-//   products:productsData.products
-// });
-
 const Admin = (props:any) => {
-  // const{documentID}=props
   const dispatch = useDispatch();
-  // const { products } = useSelector(mapState);
-const products=useSelector((state:any) => state.productsData.products)
+  const products=useSelector((state:any) => state.productsData.products)
   const[ProductCategory, setProductCategory]=useState('man');
   const[ProductName, setProductName]=useState('');
   const[ProductThambnail, setProductThambnail]=useState('');
   const[ProductPrice, setProductPrice]=useState(0);
   const [hideModal, setHideModal] = useState(true);
   const toggleModal = () => setHideModal(!hideModal);
-   console.log("all product",products)
+  
   useEffect(() => {
     dispatch(
       fetchProducts(products)
     );
   }, []);
-
   const configModal = {
    hideModal,
     toggleModal
   };
   const handleLoadMore = () => {
   };
-
   const configLoadMore = {
     onLoadMoreEvt: handleLoadMore,
   };
-  
   const handleDelete=(documentID:any)=>{
     if (window.confirm("Are you sure wanted to delete the user ?")){
       dispatch(
         deleteProductStart(documentID)
-      );
-        // props.DeleteUser(id);  
-        // props.getUser();      
+      ); 
     }
 };
   const resetForm=()=>{
@@ -66,8 +54,6 @@ const products=useSelector((state:any) => state.productsData.products)
     objUser.ProductThambnail=ProductThambnail;
     objUser.ProductPrice=ProductPrice;
     dispatch(addProduct(objUser));
-    dispatch(fetchProducts(products));
-    // console.log("Admin page product data",objUser);
     resetForm();
   }
   return (
@@ -151,9 +137,8 @@ const products=useSelector((state:any) => state.productsData.products)
               ProductPrice,
               documentID
             } = Product;
-
             return (
-  <tr key={index}>
+   <tr key={index}>
     <td>
       <img className="thumb" src={ProductThambnail} alt="src"/>
     </td>

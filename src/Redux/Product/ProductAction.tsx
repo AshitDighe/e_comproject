@@ -12,43 +12,43 @@ export const addProduct = (product:iProduct) => async (dispatch:any,productData:
      };
     await handleAddProduct({...configModal});
       dispatch({
-        type: productTypes.ADD_NEW_PRODUCT_START,
+        type: productTypes.ADD_NEW_PRODUCT_SUCCESS,
         payload: productData
+         });
+      dispatch(fetchProducts(product))
+    } catch (error) {
+     dispatch({
+        type:productTypes.ADD_NEW_PRODUCT_FAILURE,
+        payload: error
       });
-    } catch (err) {
-      // console.log(err);
     }
   };
-
-  export const setProducts = (products:iProduct) => ({
-    type: productTypes.SET_PRODUCTS,
-    payload: products
-  });
-
-  export const fetchProducts=(payload:any)=> async (dispatch:any,productID:any)=>{
+  export const fetchProducts=(payload:any)=> async (dispatch:any)=>{
     try {
       const products = await handleFetchProducts();
       dispatch({
-        type: productTypes.SET_PRODUCTS,
+        type: productTypes.FETCH_PRODUCTS_SUCCESS,
         payload: products
       });
+    } catch (error) {
       dispatch({
-        type: productTypes.FETCH_PRODUCTS_START,
+        type:productTypes.FETCH_PRODUCTS_FAILURE,
+        payload: error
       });
-    } catch (err) {
-      // console.log(err);
     }
   }
   export const deleteProductStart=(payload:any)=> async (dispatch:any,productID:any,products:iProduct)=>{
     try {
-      // debugger
-       await handleDeleteProduct(payload);
-       dispatch(fetchProducts(products));
+      await handleDeleteProduct(payload);
       dispatch({
-        type: productTypes.DELETE_PRODUCT_START,
+        type: productTypes.DELETE_PRODUCT_SUCCESS,
         payload: productID
       });
-    } catch (err) {
-      // console.log(err);
+      dispatch(fetchProducts(products));
+    } catch (error) {
+      dispatch({
+        type:productTypes.DELETE_PRODUCT_FAILURE,
+        payload: error
+      });
     }
   }
