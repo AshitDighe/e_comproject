@@ -14,7 +14,7 @@ const ProductResults = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(
-        fetchProducts({filterType})
+        fetchProducts()
     )
   }, [filterType]);
 

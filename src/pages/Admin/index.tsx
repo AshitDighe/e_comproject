@@ -21,7 +21,7 @@ const Admin = (props:any) => {
   
   useEffect(() => {
     dispatch(
-      fetchProducts(products)
+      fetchProducts()
     );
   }, []);
   const configModal = {

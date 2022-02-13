@@ -15,7 +15,7 @@ export const addProduct = (product:iProduct) => async (dispatch:any,productData:
         type: productTypes.ADD_NEW_PRODUCT_SUCCESS,
         payload: productData
          });
-      dispatch(fetchProducts(product))
+      dispatch(fetchProducts())
     } catch (error) {
      dispatch({
         type:productTypes.ADD_NEW_PRODUCT_FAILURE,
@@ -23,7 +23,7 @@ export const addProduct = (product:iProduct) => async (dispatch:any,productData:
       });
     }
   };
-  export const fetchProducts=(payload:any)=> async (dispatch:any)=>{
+  export const fetchProducts=()=> async (dispatch:any)=>{
     try {
       const products = await handleFetchProducts();
       dispatch({
@@ -44,7 +44,7 @@ export const addProduct = (product:iProduct) => async (dispatch:any,productData:
         type: productTypes.DELETE_PRODUCT_SUCCESS,
         payload: productID
       });
-      dispatch(fetchProducts(products));
+      dispatch(fetchProducts());
     } catch (error) {
       dispatch({
         type:productTypes.DELETE_PRODUCT_FAILURE,
