@@ -8,13 +8,14 @@
 
     .item {
       position: relative;
-      width: 50%;
+      width:50%;
       height: 100%;
       float: left;
-      background-position: center;
+      // background-position: center;
       background-repeat: no-repeat;
-      background-size: cover;
-      padding-top: 450px;
+      background-size:cover;
+      
+      // padding-top: 450px;
 
       &::after {
         content: "";

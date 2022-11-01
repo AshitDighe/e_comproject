@@ -1,6 +1,6 @@
 import React from 'react';
-import ShopMen from './../../../src/assets/shopMens.jpg';
-import ShopWomen from './../../../src/assets/shopWomens.jpg';
+import ShopMen from './../../../src/assets/shopMens2.jpg';
+import ShopWomen from './../../../src/assets/shopWomens2.jpg';
  import './styles.scss';
 import { Link } from 'react-router-dom';
 
