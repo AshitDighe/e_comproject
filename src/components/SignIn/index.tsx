@@ -39,7 +39,7 @@ const SignIn = (props:any) => {
     dispatch(signInWithGoogle());
   }
   const configAuthWrapper = {
-    headline: 'LogIn1'
+    headline: 'LogIn2'
   };
   return (
     <AuthWrapper {...configAuthWrapper}>
